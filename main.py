@@ -261,9 +261,12 @@ while not dead:
                 if not won_fight:
                     dead = True  # You die. Game over
                 else:
-                    if inhabitant.get_dead_enemies() >= to_be_killed:
-                        print("You win")  # you killed enough enemies to win the game
-                        dead = True
+                    try:
+                      if inhabitant.get_dead_enemies() >= to_be_killed:
+                          print("You win")  # you killed enough enemies to win the game
+                          dead = True
+                    except:
+                      pass
                     current_room.set_character(None)
             else:
                 print("This item is not in your backpack")
